@@ -14,7 +14,7 @@ def get_database():
     if not CONNECTION_STRING:
         raise ValueError("No MongoDB connection string found in environment variables.")
     
-    client = MongoClient(CONNECTION_STRING, ssl_cert_reqs=ssl.CERT_NONE, ssl=True, tlsAllowInvalidCertificates=True)
+    client = MongoClient(CONNECTION_STRING, ssl=True, tlsAllowInvalidCertificates=True)
     db = client['legalDocsDB']
 
     return db
