@@ -3,7 +3,7 @@ import streamlit as st
 
 def get_database():
     #CONNECTION_STRING = 'mongodb+srv://elmetwalleyhammad:uy5ZxY0sFvm6lZ78@cluster0.zupkc.mongodb.net/'
-    CONNECTION_STRING = st.secrets["MONGODB"]["MONGODB_CONNECTION_STRING"]
+    CONNECTION_STRING = st.secrets[MONGODB][MONGODB_CONNECTION_STRING]
     
     if not CONNECTION_STRING:
         raise ValueError("No MongoDB connection string found in environment variables.")
