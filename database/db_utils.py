@@ -1,5 +1,4 @@
 from pymongo import MongoClient
-import ssl
 
 import os
 from dotenv import load_dotenv
@@ -14,7 +13,7 @@ def get_database():
     if not CONNECTION_STRING:
         raise ValueError("No MongoDB connection string found in environment variables.")
     
-    client = MongoClient(CONNECTION_STRING, ssl=True, tlsAllowInvalidCertificates=True)
+    client = MongoClient(CONNECTION_STRING)
     db = client['legalDocsDB']
 
     return db
