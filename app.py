@@ -8,6 +8,8 @@ question = st.text_input('أدخل سؤالك هنا:')
 if st.button('إرسال'):
     if question:
         # Make a POST request to the Flask API
+        response = requests.post('https://legal-chatbot-egy.streamlit.app/get_response', json={'question': question})
+
         if response.ok:
             try:
                 response_data = response.json()
