@@ -43,7 +43,7 @@ Pygments==2.18.0
 PyMuPDF==1.24.10
 PyMuPDFb==1.24.10
 PyPDF2==3.0.1
-pymongo
+pymongo==4.1.1
 pypdfium2==4.30.0
 pytesseract==0.3.13
 python-dateutil==2.9.0.post0
