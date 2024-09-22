@@ -1,5 +1,6 @@
 from pymongo import MongoClient
-import streamlit as st
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 import os
 from dotenv import load_dotenv
