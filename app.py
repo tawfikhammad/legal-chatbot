@@ -1,5 +1,5 @@
 import streamlit as st
-from chatbot import chatbot_response
+import requests
 
 st.write("مرحبا! أنا هنا للإجابة على أسئلتك المتعلقة بالقضاء والقانون المصريه. كيف يمكنني أن اخدمك؟")
 
@@ -7,8 +7,12 @@ question = st.text_input('أدخل سؤالك هنا:')
 
 if st.button('إرسال'):
     if question:
-        response = chatbot_response(question)
-        st.write(response)
+        # Make a POST request to the Flask API
+        response = requests.post('http://http://legal-chatbot-egy.streamlit.app/get_response', json={'question': question})
+        if response.ok:
+            st.write(response.json().get('response'))
+        else:
+            st.write("حدث خطأ في الاتصال بالخادم.")
     else:
         st.write("يرجى إدخال سؤال.")
 
